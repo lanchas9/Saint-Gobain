@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saint-Gobain</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="cargaDatos()">
+    <div class="body">
+        <img src="logo.png" alt="" srcset="" class="logo">
+        <div class="title">Registro</div>
+        <div id="survay">
+            <!-- <input type="number" class="inputDatos" id="Telefono" placeholder="Teléfono*">
+            <input type="text" class="inputDatos" id="correoConfirmacion" placeholder="Confirmación de Correo*">
+            <input type="text" class="inputDatos" id="Empresa" placeholder="Empresa*"> -->
+            <select name="seleccioneEstado" id="SeleccioneEstado" class="inputDatosSelect">
+                <option value="" disabled selected>Seleccione estado*</option>
+            </select>
+            <select name="seleccioneEdad" id="seleccioneEdad" class="inputDatosSelect">
+                <option value="" disabled selected>Seleccione rango edad*</option>
+            </select>
+            <input type="text" class="inputDatos" id="Profesion" placeholder="Profesión*">
+            <div class="inputDatosChico">De los siguientes beneficios, ¿Cuáles serían los más importantes para cambiar los vidrios de tu hogar?
+                <br><br>
+                <input type="checkbox" name="checkbox3" id="checkbox3" class="checkboxIcon">
+                Control del calor y rayos UV
+                <br>
+                <input type="checkbox" name="checkbox3" id="checkbox3" class="checkboxIcon">
+                Fácil limpieza
+                <br>
+                <input type="checkbox" name="checkbox3" id="checkbox3" class="checkboxIcon">
+                Ahorros en dinero y tiempo
+                <br>
+                <input type="checkbox" name="checkbox3" id="checkbox3" class="checkboxIcon">
+                Vidrio para duchas
+                <br>
+                <input type="checkbox" name="checkbox3" id="checkbox3" class="checkboxIcon">
+                Vidrio para balcones 
+            </div>
+            <div class="inputDatosChico">¿Estarías dispuesto en cambiar los vidrios de tu hogar por vidrios inteligentes Saint-Gobain?
+                <br>
+                <select name="seleccioneSioNo" id="seleccioneSioNo" class="inputDatosSelect">
+                    <option value="" disabled selected>Seleccione Si o No*</option>
+                </select>
+            </div>
+            <select name="seleccioneRedSocial" id="seleccioneRedSocial" class="inputDatosSelect">
+                <option value="" disabled selected>Seleccione su Red Social*</option>
+            </select>
+            <div class="inputDatosChico">De la red social seleccionada arriba, ¿Cuál es tu usuario?
+                <br>
+                <input type="text" class="inputDatos" id="Profesion" placeholder="Nombre de Usuario*">
+            </div>
+            <div class="inputDatosChico">
+                <input type="checkbox" name="checkbox3" id="checkbox3" class="checkboxIcon">
+                    Autorizas que podamos contactarte por este medio para enviarte información de nuestros productos y servicios
+            </div>
+            <div id="mensajeError" class="mensajeError"></div>
+            <button class="boton" onclick="validaDatos()">Guardar</button>        
+        </div>
+    </div>
+</body>
+<script>
+    let tipoValidaciones = { 
+            existeValor: "existeValor",
+            esNumero: "esNumero",
+            email: "email",
+            celular: "celular",
+            paginaWeb: "paginaWeb",
+            esNumeroMayorAcero: "esNumeroMayorQueCero"
+        }
+        
+        var opcionesSioNo = [
+        "SI",
+        "NO"
+        ]
+
+        var redSocial = [
+        "Facebook",
+		"X (twitter)",
+		"Tiktok",
+		"YouTube",
+		"Linkedin"
+        ]
+
+        var rangoEdad = [
+        "Menores de 25",
+		"De 26 a 36",
+		"De 37 a 47",
+		"De 48 a 58", 
+		"Más de 59" 
+        ]
+
+        var estados = [
+            "Aguascalientes",
+            "Baja California",
+            "Baja California Sur",
+            "Campeche",
+            "Chiapas",
+            "Chihuahua",
+            "Ciudad de México",
+            "Coahuila",
+            "Colima",
+            "Durango",
+            "Estado de México",
+            "Guanajuato",
+            "Guerrero",
+            "Hidalgo",
+            "Jalisco",
+            "Michoacan",
+            "Morelos",
+            "Nuevo Leon",
+            "Oaxaca",
+            "Puebla",
+            "Querétaro",
+            "Quintana Roo",
+            "San Luis Potosí",
+            "Sinaloa",
+            "Sonora",
+            "Tabasco",
+            "Tamaulipas",
+            "Tlaxcala",
+            "Veracruz",
+            "Yucatán",
+            "Zacatecas"
+        ]
+
+    function cargaDatos(){
+        
+        let estado = document.getElementById("SeleccioneEstado")
+        estados.forEach(element => {
+            let opt = document.createElement("option")
+            opt.value = element
+            opt.innerHTML = element
+            estado.appendChild(opt)
+        });
+
+        let rango = document.getElementById("seleccioneEdad")
+        rangoEdad.forEach(element => {
+            let opt = document.createElement("option")
+            opt.value = element
+            opt.innerHTML = element
+            rango.appendChild(opt)
+        });
+        
+        let SioNo = document.getElementById("seleccioneSioNo")
+        opcionesSioNo.forEach(element => {
+            let opt = document.createElement("option")
+            opt.value = element
+            opt.innerHTML = element
+            SioNo.appendChild(opt)
+        });
+
+        
+        let red = document.getElementById("seleccioneRedSocial")
+        redSocial.forEach(element => {
+            let opt = document.createElement("option")
+            opt.value = element
+            opt.innerHTML = element
+            red.appendChild(opt)
+        });
+
+        
+    }
+
+
+</script>
+</html>
